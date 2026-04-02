@@ -32,7 +32,7 @@ public class ParkingLot {
   }
 
   public ParkingTicket parkVehicle(Vehicle vehicle) {
-    ParkingSpotType requiredType = getSpotType(vehicle.getVehicleType());
+    ParkingSpotType requiredType = getSpotType(vehicle.vehicleType());
 
     for (Floor floor : floors) {
       for (ParkingSpot spot : floor.getSpots()) {
@@ -43,7 +43,7 @@ public class ParkingLot {
           tickets.add(ticket);
           System.out.println(
               "Parked"
-                  + vehicle.getVehicleNumber()
+                  + vehicle.vehicleNumber()
                   + " at Floor "
                   + floor.getFloorNumber()
                   + ", Spot "
@@ -74,7 +74,7 @@ public class ParkingLot {
 
     double fee = pricingStrategy.calculateFee(ticket.getVehicle().getVehicleType(), hours);
 
-    System.out.println("Unparked" + ticket.getVehicle().getVehicleNumber() + ", Fee: " + fee);
+    System.out.println("Unparked" + ticket.getVehicle().vehicleNumber() + ", Fee: " + fee);
     return fee;
   }
 
